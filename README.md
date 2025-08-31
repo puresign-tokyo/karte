@@ -11,6 +11,13 @@
 ## 由来
 - Keep And Record Touhou Experience
 
+## ファイル構成
+```
+.
+├── main.exe
+└── settings.json
+```
+
 ## 設定ファイル
 - 設定ファイルはjson5形式なので末尾カンマ, `//` によるコメントが許される
 
