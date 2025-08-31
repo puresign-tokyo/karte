@@ -96,3 +96,9 @@
         - `ud_replay_rename_limit`が0ならリネームせずに保存する
         - `thXX_YY.rpy`の`YY`の値を1から`ud_replay_rename_limit`まで変えて存在しないファイル名があればそのファイル名で保存する
         - 以上の探索で全てのファイル名が存在していた場合リネームせずに保存する
+
+## pyinstallerによる実行ファイル作成手順
+- Python環境がない人には実行ファイルとして渡さなければならない。
+```
+$ pyinstaller --clean --onefile --hidden-import json5 --hidden-import requests --hidden-import tzdata main.py
+```
