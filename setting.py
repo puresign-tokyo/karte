@@ -1,11 +1,7 @@
 from zoneinfo import ZoneInfo
 import json5
 import log
-
-
-with open("settings.json", "r", encoding="utf-8") as fp:
-    settings = json5.load(fp)
-
+from pathlib import Path
 
 logger = log.get_logger("karte")
 
@@ -54,9 +50,9 @@ def check_settings(setting_data: dict) -> bool:
     if not exists_settings_key("timezone", str):
         return False
     try:
-        ZoneInfo(settings["timezone"])
+        ZoneInfo(setting_data["timezone"])
     except ValueError:
-        logger.critical(f"invalid timezone name {settings["timezone"]}")
+        logger.critical(f"invalid timezone name {setting_data["timezone"]}")
         return False
 
     critical_error_in_game_setting = False
@@ -77,5 +73,11 @@ def check_settings(setting_data: dict) -> bool:
 
 
 def get_setting() -> dict:
+    settings_json = Path("settings.json")
+    if not settings_json.exists():
+        logger.info("settings.json is not found.")
+        raise
+    with open("settings.json", "r", encoding="utf-8") as fp:
+        settings = json5.load(fp)
     check_settings(settings)
     return settings
