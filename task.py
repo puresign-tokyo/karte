@@ -4,6 +4,7 @@ import json
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 from pathlib import Path
+import urllib.parse
 
 logger = log.get_logger("karte")
 
@@ -40,7 +41,7 @@ def main_task(settings: dict):
     # page loop
     for page in range(settings["max_page"]):
 
-        url = f"{settings["backend_url"]}/replays?order=desc&page={page}&optional_tag={settings["optional_tag"]}"
+        url = f"{settings["backend_url"]}/replays?order=desc&page={page}&optional_tag={urllib.parse.quote(settings["optional_tag"])}"
         try:
             res_get_replays = requests.get(url=url)
             res_get_replays.raise_for_status()
