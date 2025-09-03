@@ -100,5 +100,5 @@
 ## pyinstallerによる実行ファイル作成手順
 - Python環境がない人には実行ファイルとして渡さなければならない。
 ```
-$ pyinstaller --clean --onefile --hidden-import json5 --hidden-import requests --hidden-import tzdata main.py
+$ pyinstaller --clean --onefile --hidden-import json5 --hidden-import requests --hidden-import tzdata --hidden-import colorama main.py
 ```

@@ -1,3 +1,4 @@
 json5
 requests
 tzdata
+colorama
