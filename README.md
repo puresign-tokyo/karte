@@ -27,7 +27,7 @@
     "backend_url": "http://l-uploader-api.puresign.tokyo",
     "search_days_back": 15,
     "optional_tag": "",
-    "karte_homedir": "/home/wefmaika/karte",
+    "karte_homedir": "E:/DIRECTORY/karte",
     "posts_per_page": 10,
     "max_page": 50,
     "replay_summary": "{game_name} {user_name}さん {upload_comment}",
