@@ -47,8 +47,7 @@ def main_task(settings: dict):
             res_get_replays.raise_for_status()
         except Exception as e:
             logger.exception(e)
-            # ここはcontinueにする
-            return
+            continue
         logger.info(
             f"requested replay meta infomations to L-uploader, and it responced. url: {url}"
         )
