@@ -1,13 +1,9 @@
-import json5
-import json
 import time
-import requests
 from pathlib import Path
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 import log
 import setting
-import sys
 import task
 
 log.init_logger()
