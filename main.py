@@ -15,7 +15,10 @@ init_memory = {"known_id": -1}
 
 while True:
     logger.info("task start.")
-    task.main_task(settings=settings)
+    try:
+        task.main_task(settings=settings)
+    except Exception as e:
+        logger.exception(e)
     logger.info("task end.")
     # あんまし過度にリクエストしてほしくないのでユーザ側で決めさせずハードコード
     time.sleep(180)

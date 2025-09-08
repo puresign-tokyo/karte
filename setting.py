@@ -14,18 +14,18 @@ def check_settings(setting_data: dict) -> bool:
         if not isinstance(setting_data[key], value_type):
             logger.critical(f"{key} is not {value_type}: {type(setting_data[key])}")
             return False
-        return False
+        return True
 
     def exists_settings_game_key(game: str, key: str, value_type: type) -> bool:
         if key not in setting_data["games"][game]:
             logger.critical(f"setting data does not include the key in {game} :{key}")
             return False
-        if not isinstance(setting_data[key], value_type):
+        if not isinstance(setting_data["games"][game][key], value_type):
             logger.critical(
                 f"{key} of {game} is not {value_type}: {type(setting_data[key])}"
             )
             return False
-        return False
+        return True
 
     if not exists_settings_key("backend_url", str):
         return False
